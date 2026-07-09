@@ -1,0 +1,228 @@
+:root {
+    --marrom: #795548;
+    --rosa-accent: #F06292;
+    --rosa-claro: #FCE4EC;
+    --branco: #FFFFFF;
+    --cinza-fundo: #FAFAFA;
+    --texto: #333333;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { background-color: var(--cinza-fundo); padding-bottom: 90px; }
+
+/* Header */
+.app-header { background: var(--branco); padding: 40px 25px 20px; }
+.top-nav-profile { display: flex; justify-content: space-between; align-items: center; }
+.brand { font-size: 1.5rem; color: var(--marrom); font-weight: 800; }
+.brand span { color: var(--rosa-accent); }
+.settings-btn { background: none; border: none; font-size: 1.6rem; color: var(--marrom); cursor: pointer; }
+
+/* Cartão do Usuário */
+.user-card {
+    background: var(--branco);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.user-avatar { width: 80px; height: 80px; border-radius: 25px; object-fit: cover; }
+.user-details h2 { font-size: 1.2rem; color: var(--texto); }
+.user-details p { font-size: 0.8rem; color: #888; margin: 4px 0 10px; }
+.btn-edit-profile { 
+    background: var(--rosa-claro); color: var(--rosa-accent); 
+    border: none; padding: 6px 15px; border-radius: 10px; 
+    font-size: 0.75rem; font-weight: 700; 
+}
+
+/* Meus Pets */
+.pets-section { padding: 10px 25px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.section-header h3 { font-size: 0.95rem; color: var(--texto); }
+.add-text-btn { background: none; border: none; color: var(--rosa-accent); font-weight: 700; font-size: 0.85rem; }
+
+.pets-grid { display: flex; gap: 15px; overflow-x: auto; }
+.pet-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.pet-item img { width: 65px; height: 65px; border-radius: 20px; object-fit: cover; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.pet-item span { font-size: 0.75rem; font-weight: 600; color: #666; }
+
+/* Lista de Gestão */
+.management-list { padding: 25px; }
+.manage-item {
+    background: var(--branco);
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.manage-icon { background: var(--rosa-claro); color: var(--rosa-accent); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.manage-text { flex: 1; }
+.manage-text strong { display: block; font-size: 0.85rem; color: var(--texto); }
+.manage-text span { font-size: 0.7rem; color: #999; display: flex; align-itens: center; gap: 5px;}
+.logout { margin-top: 20px; border: 1px solid #fee; }
+.logout .manage-icon { background: #fee; color: #f44; }
+.logout span { font-size: 0.85rem; font-weight: 700; color: #f44; }
+
+/* Barra Inferior */
+.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; height: 75px; display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #eee; z-index: 2000; }
+.nav-item { text-decoration: none; display: flex; flex-direction: column; align-items: center; color: #BDBDBD; }
+.nav-item i { font-size: 1.5rem; }
+.nav-item span { font-size: 0.7rem; font-weight: 600; }
+.nav-item.active { color: var(--marrom); }
+.nav-item.active i { color: var(--rosa-accent); }
+
+/* Estilização do Modal Moderno */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    padding: 20px;
+}
+
+.modal-card {
+    background: var(--branco);
+    width: 100%;
+    max-width: 360px;
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    animation: surgindo 0.3s ease-out;
+}
+
+@keyframes surgindo {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-card h3 {
+    font-size: 1.2rem;
+    color: var(--texto);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.modal-card p {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.modal-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.modal-input-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--marrom);
+}
+
+.modal-input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.2s;
+}
+
+.modal-input-group input:focus {
+    border-color: var(--rosa-accent);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-modal-cancelar {
+    flex: 1;
+    padding: 12px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666;
+    cursor: pointer;
+}
+
+.btn-modal-salvar {
+    flex: 1;
+    padding: 12px;
+    background: var(--marrom);
+    border: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--branco);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(121, 85, 72, 0.2);
+}
+
+/* Estilização dos cards de pets na lista do perfil */
+.pet-card-item {
+    background: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 20px !important;
+    padding: 14px !important;
+    display: flex !important;
+    gap: 14px !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.2s ease;
+}
+
+.pet-card-item:active {
+    transform: scale(0.98);
+}
+
+/* Customização interna dos textos do card dinâmico de pets */
+.pet-card-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.pet-card-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pet-card-item h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--texto);
+}
+
+.pet-card-item .pet-situacao {
+    font-size: 0.75rem;
+    color: var(--rosa-accent);
+    font-weight: 600;
+}
+
+.pet-card-item .pet-localizacao {
+    font-size: 0.7rem;
+    color: #888;
+}
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Pet</title>
+
+    <link rel="stylesheet" href="animal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <div class="animal-hero">
+        <button class="back-btn" onclick="history.back()">
+            <i class="ph ph-caret-left"></i>
+        </button>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <main class="animal-details">
+
+        <div class="title-row">
+            <h1 id="nome-pet">Nome</h1>
+            <span class="status-tag" id="status-pet">Status</span>
+        </div>
+
+        <p class="loc-text" id="local-pet">
+            <i class="ph ph-map-pin"></i> Localização
+        </p>
+
+        <a href="mapa.html" class="btn-map">
+            <i class="ph ph-map-trifold"></i> Localizar no Mapa
+        </a>
+
+        <div class="description">
+            <h3>Sobre</h3>
+            <p id="desc-pet">Descrição...</p>
+        </div>
+
+        <div class="owner-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Dono">
+            <div class="owner-info">
+                <strong>João Silva</strong>
+                <span>Dono do Pet</span>
+            </div>
+            <a href="chat.html" class="contact-btn">
+                <i class="ph ph-chat-circle"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <a class="floating-chat" href="chat.html">
+        <i class="ph ph-chat-circle-dots"></i>
+    </a>
+
+    <!-- SCRIPT ÚNICO E LIMPO -->
+        <script>
+const pet = JSON.parse(localStorage.getItem('petSelecionado'));
+
+if (pet) {
+
+    document.querySelector('.animal-hero').style.backgroundImage =
+        `url('${pet.foto}')`;
+
+    document.getElementById('nome-pet').innerText = pet.nome;
+    document.getElementById('status-pet').innerText = pet.situacao;
+
+    document.getElementById('local-pet').innerHTML =
+        `<i class="ph ph-map-pin"></i> ${pet.localizacao}`;
+
+    document.getElementById('desc-pet').innerText = pet.descricao;
+
+    // 🎨 COR DO STATUS (AGORA CERTO)
+    const status = document.getElementById('status-pet');
+
+    status.style.background =
+        pet.situacao === 'perdido' ? '#F06292' :
+        pet.situacao === 'encontrado' ? '#795548' :
+        '#4CAF50';
+
+    status.style.color = 'white';
+
+} else {
+    document.getElementById('nome-pet').innerText = "Pet não encontrado";
+    document.getElementById('desc-pet').innerText = "Nenhum dado foi enviado.";
+}
+</script>
+
+</body>
+</html>

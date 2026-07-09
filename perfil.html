@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PetTrace - Perfil</title>
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="top-nav-profile">
+            <h1 class="brand">Meu<span>Perfil</span></h1>
+            <button class="settings-btn"><i class="ph ph-gear-six"></i></button>
+        </div>
+    </header>
+
+    <main class="profile-body">
+        <section class="user-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Foto" class="user-avatar">
+            <div class="user-details">
+                <h2>João Silva</h2>
+                <p><i class="ph ph-map-pin"></i> São Paulo, SP</p>
+                <button id="btnEditarPerfil" class="btn-edit-profile">Editar perfil</button>
+            </div>
+        </section>
+
+        <section class="pets-section">
+            <div class="section-header">
+                <h3>Meus Pets Cadastrados</h3>
+                <button class="add-text-btn" onclick="window.location.href='cadastrar-pet.html'">+ Adicionar</button>
+            </div>
+            <div class="pets-grid" id="meus-pets-container"></div>
+        </section>
+
+        <section class="management-list">
+            <div class="manage-item">
+                <div class="manage-icon"><i class="ph ph-bluetooth"></i></div>
+                <div class="manage-text">
+                    <strong>Coleira PetTrace v2</strong>
+                    <span style="color: #4CAF50;">● Conectada (Bateria 85%)</span>
+                </div>
+                <i class="ph ph-caret-right"></i>
+            </div>
+
+            <div class="manage-item">
+                <div class="manage-icon"><i class="ph ph-broadcast"></i></div>
+                <div class="manage-text">
+                    <strong>Raio de Segurança</strong>
+                    <span>Ativado: 500 metros</span>
+                </div>
+                <i class="ph ph-caret-right"></i>
+            </div>
+
+            <div class="manage-item">
+                <div class="manage-icon"><i class="ph ph-qr-code"></i></div>
+                <div class="manage-text">
+                    <strong>QR Code do Bento</strong>
+                    <span>Gerar código para coleira física</span>
+                </div>
+                <i class="ph ph-caret-right"></i>
+            </div>
+
+            <div class="manage-item logout">
+                <div class="manage-icon"><i class="ph ph-sign-out"></i></div>
+                <span>Sair da conta</span>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="mapa.html" class="nav-item"><i class="ph ph-map-trifold"></i><span>Mapa</span></a>
+        <a href="adocao.html" class="nav-item"><i class="ph ph-heart"></i><span>Adoção</span></a>
+        <a href="chat.html" class="nav-item"><i class="ph ph-chat-circle-dots"></i><span>Chat</span></a>
+        <a href="perfil.html" class="nav-item active"><i class="ph ph-user"></i><span>Perfil</span></a>
+    </nav>
+
+    <!-- MODAL CORRIGIDO E LIMPO -->
+    <div id="editModal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <h3>Editar Perfil</h3>
+            <p>Atualize as suas informações de exibição</p>
+            
+            <div class="modal-input-group">
+                <label for="editUsername">Nome de Usuário</label>
+                <input type="text" id="editUsername" placeholder="Seu nome ou apelido...">
+            </div>
+
+            <div class="modal-input-group">
+                <label for="editLocation">Localização</label>
+                <input type="text" id="editLocation" placeholder="Ex: São Paulo, SP...">
+            </div>
+            
+            <div class="modal-actions">
+                <button id="btnCancelarModal" class="btn-modal-cancelar">Cancelar</button>
+                <button id="btnSalvarModal" class="btn-modal-salvar">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="perfil.js"></script>
+</body>
+</html>

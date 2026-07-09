@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PetTrace - Home</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2=family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Modos de exibição das telas internas da Home */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        
+        /* Cabeçalhos Premium */
+        .app-header-cadastro, .app-header-perfil-pet {
+            background: #FFFFFF;
+            padding: 30px 20px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .back-btn { 
+            background: #F5F5F5; 
+            border: none; 
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem; 
+            color: #795548; 
+            cursor: pointer; 
+            transition: 0.2s;
+        }
+        .back-btn:active { transform: scale(0.9); }
+        h1.title-top { font-size: 1.3rem; font-weight: 800; color: #212121; }
+
+        /* Formulário de Cadastro */
+        .form-container { padding: 20px; }
+        .input-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+        .input-group label { font-size: 0.85rem; font-weight: 700; color: #212121; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%; padding: 16px; border: 2px solid #E0E0E0; border-radius: 18px; font-size: 1rem; outline: none; background: #FFFFFF;
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: #F06292; }
+
+        /* Upload de Imagem */
+        .file-label {
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+            padding: 30px 20px; border: 2px dashed #795548; border-radius: 18px; background: #FFFFFF; color: #795548; font-weight: 600; cursor: pointer;
+        }
+        .file-label i { font-size: 2rem; color: #F06292; }
+        .file-input { display: none; }
+        #photo-preview { width: 100%; height: 150px; border-radius: 18px; object-fit: cover; display: none; margin-top: 10px; }
+
+        .btn-submit {
+            width: 100%; padding: 18px; background-color: #795548; color: #FFFFFF; border: none; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer;
+            box-shadow: 0 8px 20px rgba(121, 85, 72, 0.3);
+        }
+
+        /* Tela de Perfil do Pet */
+        .pet-detail-container { padding: 0; background: #F5F5F5; }
+        .detail-hero-image { width: 100%; height: 280px; background-size: cover; background-position: center; position: relative; }
+        .detail-badge { position: absolute; bottom: 20px; left: 20px; padding: 8px 16px; border-radius: 12px; color: #FFFFFF; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; }
+        .detail-info-box { background: #FFFFFF; padding: 25px; border-top-left-radius: 30px; border-top-right-radius: 30px; margin-top: -25px; position: relative; box-shadow: 0 -5px 15px rgba(0,0,0,0.02); }
+        .detail-info-box h2 { font-size: 1.8rem; font-weight: 800; color: #212121; margin-bottom: 5px; }
+        .detail-info-box .detail-age { font-size: 1rem; color: #F06292; font-weight: 700; margin-bottom: 12px; }
+        .detail-info-box .detail-location { font-size: 0.95rem; color: #757575; display: flex; align-items: center; gap: 6px; margin-bottom: 15px; }
+        
+        .map-link { display: inline-flex; align-items: center; gap: 5px; color: #795548; font-weight: 700; text-decoration: none; font-size: 0.9rem; margin-bottom: 25px; border-bottom: 2px solid #795548; padding-bottom: 2px; }
+        .detail-about h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 10px; }
+        .detail-about p { font-size: 0.95rem; color: #424242; line-height: 1.6; margin-bottom: 30px; }
+
+        .owner-card { display: flex; align-items: center; gap: 15px; padding: 15px; background: #F5F5F5; border-radius: 20px; }
+        .owner-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+        .owner-info h4 { font-size: 1rem; font-weight: 700; color: #212121; }
+        .owner-info p { font-size: 0.8rem; color: #757575; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="page-home" class="page active">
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="brand">Pet<span>Trace</span></h1>
+                <button class="notification-btn" id="btn-notif">
+                    <i class="ph ph-bell"></i>
+                    <span class="dot"></span>
+                </button>
+            </div>
+            
+            <div class="tabs-filter" id="filtros-feed">
+                <div class="tab-item active" data-filter="todos">Todos</div>
+                <div class="tab-item" data-filter="perdido">Perdidos</div>
+                <div class="tab-item" data-filter="encontrado">Encontrados</div>
+                <div class="tab-item" data-filter="adocao">Adoção</div>
+            </div>
+        </header>
+
+        <main class="feed-container" id="feed-pets"></main>
+    </div>
+
+        <div id="page-cadastro" class="page">
+        <header class="app-header-cadastro">
+            <button class="back-btn btn-voltar-home"><i class="ph ph-caret-left"></i></button>
+            <h1 class="title-top">Cadastrar Novo Pet</h1>
+        </header>
+
+        <main class="form-container">
+            <form id="petForm">
+                <div class="input-group">
+                    <label>Nome do Pet</label>
+                    <input type="text" id="petNome" placeholder="Ex: Mel, Thor..." required>
+                </div>
+
+                <!-- CAMPO ESPÉCIE ADICIONADO AQUI -->
+                <div class="input-group">
+                    <label>Espécie</label>
+                    <select id="petEspecie" required>
+                        <option value="">Selecione a espécie</option>
+                        <option value="cao">Cão</option>
+                        <option value="gato">Gato</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Situação</label>
+                    <select id="petSituacao" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="perdido">Perdido</option>
+                        <option value="encontrado">Encontrados</option>
+                        <option value="adocao">Para Adoção</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Idade ou Tempo aproximado</label>
+                    <input type="text" id="petIdade" placeholder="Ex: 2 anos, 5 meses..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Localização (Rua, Bairro, Cidade)</label>
+                    <input type="text" id="petLocalizacao" placeholder="Ex: Rua Augusta, Consolação, São Paulo" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Descrição / Características</label>
+                    <textarea id="petDescricao" rows="4" placeholder="Fale sobre o temperamento, marcas..." required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Foto do Pet</label>
+                    <label for="petFotoArquivo" class="file-label">
+                        <i class="ph ph-camera"></i>
+                        <span>Escolher da Galeria</span>
+                    </label>
+                    <input type="file" id="petFotoArquivo" accept="image/*" class="file-input" required>
+                    <img id="photo-preview" src="" alt="Preview">
+                </div>
+
+                <button type="submit" class="btn-submit">PUBLICAR PET</button>
+            </form>
+        </main>
+    </div>
+
+
+    <div id="notif-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> 
+                <h3>Notificações</h3> 
+                <button id="btn-fechar-notif"><i class="ph ph-x"></i></button> 
+            </div>
+            <div class="notif-item"> 
+                <i class="ph ph-chat-circle-dots"></i> 
+                <p>Ricardo enviou uma mensagem.</p> 
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="mapa.html" class="nav-item"><i class="ph ph-map-trifold"></i><span>Mapa</span></a>
+        <a href="adocao.html" class="nav-item"><i class="ph ph-heart"></i><span>Adoção</span></a>
+        <a href="chat.html" class="nav-item"><i class="ph ph-chat-circle-dots"></i><span>Chat</span></a>
+        <a href="perfil.html" class="nav-item"><i class="ph ph-user"></i><span>Perfil</span></a>
+        <a href="cadastrar-pet.html" class="nav-item" id="btn-abrir-cadastro-nav"><i class="ph ph-plus-circle"></i><span>Cadastrar</span></a>
+
+
+    </nav>
+
+    <button class="floating-btn" id="btn-abrir-cadastro">
+        <i class="ph ph-plus"></i>
+    </button>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>

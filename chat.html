@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PetTrace - Conversas</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-content">
+            <h1 class="brand">Mensagens<span>.</span></h1>
+            <button class="search-chat"><i class="ph ph-magnifying-glass"></i></button>
+        </div>
+        
+        <div class="chat-filters">
+            <button class="filter-btn active">Todas</button>
+            <button class="filter-btn">Urgentes</button>
+            <button class="filter-btn">Adoção</button>
+        </div>
+    </header>
+
+    <main class="chat-list">
+        <div class="chat-item unread">
+            <div class="avatar-wrapper">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="Usuário" class="avatar">
+                <div class="status-indicator online"></div>
+            </div>
+            <div class="chat-info">
+                <div class="chat-header">
+                    <h4>Ricardo Silva</h4>
+                    <span class="chat-time">14:20</span>
+                </div>
+                <div class="chat-preview">
+                    <p><span>Urgente:</span> Acho que vi o Bento perto da praça! Mandei uma foto...</p>
+                    <div class="unread-badge">2</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-item">
+            <div class="avatar-wrapper">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Usuário" class="avatar">
+            </div>
+            <div class="chat-info">
+                <div class="chat-header">
+                    <h4>Ana Luiza (Abrigo)</h4>
+                    <span class="chat-time">Ontem</span>
+                </div>
+                <div class="chat-preview">
+                    <p><i class="ph ph-camera"></i> Foto enviada</p>
+                    <i class="ph ph-checks-bold read-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-item">
+            <div class="avatar-wrapper">
+                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100" alt="Usuário" class="avatar">
+            </div>
+            <div class="chat-info">
+                <div class="chat-header">
+                    <h4>Marcos Oliveira</h4>
+                    <span class="chat-time">Segunda</span>
+                </div>
+                <div class="chat-preview">
+                    <p>Obrigado por ajudar a compartilhar!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="ph ph-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="mapa.html" class="nav-item">
+            <i class="ph ph-map-trifold"></i>
+            <span>Mapa</span>
+        </a>
+        <a href="adocao.html" class="nav-item">
+            <i class="ph ph-heart"></i>
+            <span>Adoção</span>
+        </a>
+        <a href="chat.html" class="nav-item active">
+            <i class="ph ph-chat-circle-dots"></i>
+            <span>Chat</span>
+        </a>
+        <a href="perfil.html" class="nav-item">
+            <i class="ph ph-user"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+    
+        <button class="floating-btn" onclick="window.location.href='index.html?open=cadastro'">
+        <i class="ph ph-plus"></i>
+    </button>
+
+    <script>
+        // Função simples para navegação se precisar
+        function navegar(url) {
+            window.location.href = url;
+        }
+    </script>
+
+
+</body>
+</html>
+

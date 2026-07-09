@@ -1,0 +1,182 @@
+:root {
+    --marrom: #795548;
+    --rosa-claro: #FCE4EC;
+    --rosa-accent: #F06292;
+    --branco: #FFFFFF;
+    --preto: #212121;
+    --cinza-texto: #757575;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--rosa-claro);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-background {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--branco);
+    padding: 40px 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Header & Logo */
+.brand {
+    font-size: 2.2rem;
+    color: var(--marrom);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.brand span {
+    color: var(--rosa-accent);
+}
+
+.tagline {
+    color: var(--cinza-texto);
+    font-size: 0.95rem;
+    margin-top: 5px;
+    margin-bottom: 35px;
+}
+
+/* Formulário */
+.input-container {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--preto);
+    margin-bottom: 8px;
+    margin-left: 5px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 15px;
+    color: var(--cinza-texto);
+    font-size: 1.2rem;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border: 1.5px solid #eee;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--rosa-accent);
+    box-shadow: 0 0 0 4px rgba(240, 98, 146, 0.1);
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--marrom);
+    text-decoration: none;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Botão Principal */
+.btn-main {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--marrom);
+    color: var(--branco);
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 8px 15px rgba(121, 85, 72, 0.3);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #5d4037;
+    transform: translateY(-2px);
+}
+
+/* Login Social */
+.social-login {
+    margin-top: 30px;
+}
+
+.social-login p {
+    font-size: 0.8rem;
+    color: var(--cinza-texto);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1.5px solid #eee;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: var(--rosa-claro);
+    border-color: var(--rosa-accent);
+}
+
+/* Footer */
+.footer {
+    margin-top: 35px;
+    font-size: 0.9rem;
+    color: var(--cinza-texto);
+}
+
+.signup-link {
+    color: var(--preto);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--rosa-accent);
+}
+

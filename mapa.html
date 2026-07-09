@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PetTrace - Localização Premium</title>
+    
+    <!-- 1. CSS DO LEAFLET PRIMEIRO (Obrigatório para o mapa não quebrar) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- 2. SEU CSS DEPOIS (Para você conseguir customizar por cima) -->
+    <link rel="stylesheet" href="mapa.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="map-header">
+        <div class="search-container">
+
+    <i class="ph ph-magnifying-glass"></i>
+
+    <input 
+        id="pesquisaMapa" 
+        type="text" 
+        placeholder="Onde seu pet sumiu?"
+        autocomplete="off"
+    >
+
+    <div id="sugestoesPesquisa"></div>
+
+</div>
+        <div class="quick-filters">
+            <button class="chip active">Todos</button>
+            <button class="chip"><i class="ph ph-dog"></i> Cães</button>
+            <button class="chip"><i class="ph ph-cat"></i> Gatos</button>
+        </div>
+    </div>
+
+    <!-- O bloco do mapa -->
+    <div id="map"></div>
+
+    <div class="fab-container">
+        <button class="fab-secondary" onclick="centerMap()"><i class="ph ph-crosshair"></i></button>
+        <button class="report-fab" onclick="window.location.href='cadastrar-pet.html'">
+            <i class="ph ph-plus"></i>
+            <span>Novo Registro</span>
+        </button>
+    </div>
+
+    <div class="pet-detail-card" id="petCard">
+        <div class="pet-thumb" style="background-image: url('https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200')"></div>
+        <div class="pet-desc">
+            <h4>Bento</h4>
+            <p>Visto há 15 min no Parque</p>
+            <button class="btn-ir">Traçar rota</button>
+        </div>
+        <button class="close-card" onclick="closePetCard()"><i class="ph ph-x"></i></button>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="mapa.html" class="nav-item active"><i class="ph ph-map-trifold"></i><span>Mapa</span></a>
+        <a href="adocao.html" class="nav-item"><i class="ph ph-heart"></i><span>Adoção</span></a>
+        <a href="chat.html" class="nav-item"><i class="ph ph-chat-circle-dots"></i><span>Chat</span></a>
+        <a href="perfil.html" class="nav-item"><i class="ph ph-user"></i><span>Perfil</span></a>
+    </nav>
+
+    <!-- JS DO LEAFLET E DEPOIS O SEU SCRIPT -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="mapa.js"></script>
+</body>
+</html>

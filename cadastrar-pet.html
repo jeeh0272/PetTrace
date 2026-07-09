@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PetTrace - Cadastrar Pet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --marrom: #795548;
+            --rosa-claro: #FCE4EC;
+            --rosa-accent: #F06292;
+            --branco: #FFFFFF;
+            --preto: #212121;
+            --cinza-texto: #757575;
+            --cinza-fundo: #FAFAFA;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--cinza-fundo); padding-bottom: 100px; color: var(--preto); }
+        .app-header { background: var(--branco); padding: 40px 25px 20px; display: flex; align-items: center; gap: 15px; }
+        .back-btn { background: none; border: none; font-size: 1.5rem; color: var(--marrom); }
+        .app-header h1 { font-size: 1.4rem; font-weight: 800; }
+        .form-container { padding: 25px; }
+        .input-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+        .input-group label { font-size: 0.9rem; font-weight: 600; color: var(--preto); }
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%; padding: 14px; border: 2px solid #eee; border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--rosa-accent); }
+        .file-label {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 20px; border: 2px dashed var(--marrom); border-radius: 15px;
+            background: var(--branco); color: var(--marrom); font-weight: 600; cursor: pointer;
+        }
+        .file-input { display: none; }
+        .btn-submit {
+            width: 100%; padding: 16px; background-color: var(--marrom); color: var(--branco);
+            border: none; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer;
+            margin-top: 15px; box-shadow: 0 8px 15px rgba(121, 85, 72, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <button class="back-btn" onclick="history.back()"><i class="ph ph-caret-left"></i></button>
+        <h1>Cadastrar pet</h1>
+    </header>
+
+    <main class="form-container">
+        <form id="petForm">
+            <div class="input-group">
+                <label>Nome do Pet</label>
+                <input type="text" id="petNome" placeholder="Ex: Mel, Thor..." required>
+            </div>
+
+            <div class="input-group">
+                <label>Espécie</label>
+                <select id="petEspecie" required>
+                    <option value="">Selecione a espécie</option>
+                    <option value="cao">Cão</option>
+                    <option value="gato">Gato</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Situação</label>
+                <select id="petSituacao" required>
+                    <option value="">Selecione uma opção</option>
+                    <option value="perdido">Perdido</option>
+                    <option value="encontrado">Encontrado</option>
+                    <option value="adocao">Para Adoção</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Idade ou Tempo aproximado</label>
+                <input type="text" id="petIdade" placeholder="Ex: 2 anos, 5 meses..." required>
+            </div>
+
+            <div class="input-group">
+                <label>Localização (Rua, Bairro, Cidade)</label>
+                <input type="text" id="petLocalizacao" placeholder="Ex: Rua Augusta, Consolação, São Paulo" required>
+            </div>
+
+            <div class="input-group">
+                <label>Descrição / Características</label>
+                <textarea id="petDescricao" rows="4" placeholder="Conte mais sobre o pet, temperamento, cicatrizes ou coleira..." required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Foto do Pet</label>
+                <label for="fotoFile" class="file-label">
+                    <i class="ph ph-camera"></i> Escolher da Galeria
+                </label>
+                <input type="file" id="fotoFile" class="file-input" accept="image/*" required>
+            </div>
+
+            <button type="submit" class="btn-submit">PUBLICAR PET</button>
+        </form>
+    </main>
+    
+    <script type="module" src="cadastro.js"></script>
+</body>
+</html>

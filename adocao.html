@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PetTrace - Adoção</title>
+    <link rel="stylesheet" href="adocao.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-top">
+            <h1 class="brand">Pet<span>Trace</span></h1>
+            <button class="icon-btn"><i class="ph ph-sliders"></i></button>
+        </div>
+        <p class="subtitle">Encontre seu novo melhor amigo</p>
+        
+        <div class="species-filter">
+    <div class="specie-item active" data-especie="cao">
+        <div class="specie-icon"><i class="ph ph-dog"></i></div>
+        <span>Cães</span>
+    </div>
+    <div class="specie-item" data-especie="gato">
+        <div class="specie-icon"><i class="ph ph-cat"></i></div>
+        <span>Gatos</span>
+    </div>
+    <div class="specie-item" data-especie="ave">
+        <div class="specie-icon"><i class="ph ph-bird"></i></div>
+        <span>Aves</span>
+    </div>
+    <div class="specie-item" data-especie="outro">
+        <div class="specie-icon"><i class="ph ph-rabbit"></i></div>
+        <span>Outros</span>
+    </div>
+    
+    <!-- NOVO: Botão de Favoritos ao lado das espécies -->
+    <div class="specie-item" id="btn-filtro-favoritos">
+        <div class="specie-icon" style="color: var(--rosa-accent);"><i class="ph ph-heart"></i></div>
+        <span>Favoritos</span>
+    </div>
+</div>
+
+    </header>
+
+<main class="adoption-grid" id="feed-adocao">
+</main>
+  
+    </>
+
+    <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+        <i class="ph ph-house"></i>
+        <span>Home</span>
+    </a>
+    <a href="mapa.html" class="nav-item">
+        <i class="ph ph-map-trifold"></i>
+        <span>Mapa</span>
+    </a>
+    <a href="adocao.html" class="nav-item active">
+        <i class="ph ph-heart"></i>
+        <span>Adoção</span>
+    </a>
+    <a href="chat.html" class="nav-item">
+        <i class="ph ph-chat-circle-dots"></i>
+        <span>Chat</span>
+    </a>
+    <a href="perfil.html" class="nav-item">
+        <i class="ph ph-user"></i>
+        <span>Perfil</span>
+    </a>
+</nav>
+        <script>
+        function toggleFavorito(botao) {
+            // Procura o ícone dentro do botão
+            const icone = botao.querySelector('i');
+            
+            // O Phosphor Icons usa a classe 'ph-fill' para pintar o ícone por dentro
+            if (icone.classList.contains('ph-fill')) {
+                // Se já estiver pintado, nós removemos o preenchimento e a cor ativa
+                icone.classList.remove('ph-fill');
+                botao.classList.remove('favoritado');
+            } else {
+                // Se estiver vazio, nós adicionamos o preenchimento e a cor ativa
+                icone.classList.add('ph-fill');
+                botao.classList.add('favoritado');
+            }
+        }
+    </script>
+
+  <script type="module" src="adocao.js"></script>
+
+</body>
+</html>
+
+

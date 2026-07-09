@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetTrace - Identidade Visual</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta de Cores Extraída da Imagem 
+           Usei os códigos hexadecimais exatos para a cor do botão,
+           o rosa claro de fundo e o marrom do texto principal.
+        */
+        :root {
+            --marrom-main: #795548; /* Cor do botão e do Pet */
+            --rosa-background: #FCE4EC; /* Fundo rosa bem suave */
+            --rosa-accent: #F06292; /* Cor do Trace e do traço de cadastro */
+            --rosa-input-border: #F8BBD0; /* Borda leve dos campos */
+            --branco: #FFFFFF;
+            --preto: #212121;
+            --cinza-texto: #757575;
+        }
+
+        /* Reset Básico e Tipografia */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Estilização do Fundo */
+        body {
+            background-color: var(--rosa-background);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Container Principal do Login (Card) */
+        .login-card {
+            background: var(--branco);
+            width: 100%;
+            max-width: 400px;
+            padding: 50px 35px 35px 35px; /* Padding superior maior para respiro */
+            border-radius: 40px; /* Bordas bem arredondadas como na imagem */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1); /* Sombra suave de profundidade */
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Logo e Texto de Boas-vindas */
+        .logo-section {
+            margin-bottom: 35px;
+        }
+
+        .brand {
+            font-size: 2.6rem;
+            color: var(--marrom-main);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 5px;
+        }
+
+        .brand span {
+            color: var(--rosa-accent);
+        }
+
+        .tagline {
+            color: var(--cinza-texto);
+            font-size: 0.95rem;
+            line-height: 1.4;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* Formulário de Input */
+        .login-form {
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--preto);
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+
+        /* Container que une ícone e campo de input */
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 18px;
+            color: var(--marrom-main);
+            font-size: 1.2rem;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 16px 16px 16px 50px;
+            border: 2px solid var(--rosa-input-border);
+            border-radius: 18px;
+            font-size: 1rem;
+            background-color: #fffafc; /* Fundo levemente rosa dentro do input */
+            transition: all 0.2s ease-in-out;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--marrom-main);
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.1);
+        }
+
+        /* Esqueceu a senha? */
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--marrom-main);
+            text-decoration: none;
+            margin-top: 10px;
+            margin-right: 5px;
+            font-weight: 600;
+        }
+
+        /* Botão Principal ENTRAR */
+        .btn-main {
+            width: 100%;
+            padding: 20px; /* Padding maior para o botão "pill-shaped" */
+            background-color: var(--marrom-main);
+            color: var(--branco);
+            border: none;
+            border-radius: 50px; /* Botão completamente arredondado */
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(121, 85, 72, 0.3); /* Sombra no botão */
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-main:hover {
+            background-color: #5d4037;
+            transform: translateY(-2px);
+        }
+
+        /* Seção de Login Social */
+        .social-login {
+            border-top: 1px solid #f0f0f0;
+            padding-top: 30px;
+        }
+
+        .social-login p {
+            font-size: 0.8rem;
+            color: var(--cinza-texto);
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 18px; /* Bordas suaves nos ícones sociais */
+            border: 2px solid #f0f0f0;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .social-btn:hover {
+            background-color: var(--rosa-background);
+            border-color: var(--rosa-accent);
+        }
+
+        /* Rodapé de Cadastro */
+        .footer {
+            margin-top: 35px;
+            font-size: 0.9rem;
+            color: var(--cinza-texto);
+        }
+
+        .signup-link {
+            color: var(--preto);
+            font-weight: 800;
+            text-decoration: none;
+            border-bottom: 2px solid var(--rosa-accent); /* Linha rosa abaixo do cadastro */
+            padding-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="logo-section">
+            <h1 class="brand">Pet<span>Trace</span></h1>
+            <p class="tagline">Cadastre-se ou faça login.</p>
+        </div>
+
+        <form class="login-form" id="form-login">
+    <div class="input-group">
+        <label>E-mail ou Usuário</label>
+        <div class="input-wrapper">
+            <i class="ph ph-envelope"></i>
+            <input type="email" id="login-email" placeholder="nome@exemplo.com" required>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label>Senha</label>
+        <div class="input-wrapper">
+            <i class="ph ph-lock"></i>
+            <input type="password" id="login-senha" placeholder="••••••••" required>
+        </div>
+        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+    </div>
+
+    <!-- O BOTÃO DEVE FICAR AQUI DENTRO, COM O ID CORRETO E SEM A TAG <a> -->
+    <button type="submit" class="btn-main" id="btn-entrar">ENTRAR</button>
+</form>
+
+        <div class="social-login">
+            <p>Ou entre com:</p>
+            <div class="social-icons">
+                <button type="button" class="social-btn" id="btn-google">
+                    <i class="ph ph-google-logo" style="color: #DB4437;"></i>
+                </button>
+                <button type="button" class="social-btn">
+                    <i class="ph ph-facebook-logo" style="color: #4267B2;"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOVIDO PARA DENTRO DO CARD -->
+        <footer class="footer">
+            <p>Não tem uma conta? <a href="#" class="signup-link">Cadastre-se!</a></p>
+        </footer>
+    </div> <!-- Esse é o fechamento da login-card -->
+
+<script type="module" src="petrace.js"></script>
+</body>
+</html>

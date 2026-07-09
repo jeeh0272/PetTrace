@@ -1,0 +1,143 @@
+
+:root {
+    --marrom: #795548;
+    --rosa-fundo: #FCE4EC;
+    --rosa-accent: #F06292;
+    --branco: #FFFFFF;
+    --preto: #212121;
+    --cinza-texto: #757575;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { background-color: #fafafa; padding-bottom: 100px; }
+
+/* Header */
+.app-header {
+    background: var(--branco);
+    padding: 30px 20px 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.header-top { display: flex; justify-content: space-between; align-items: center; }
+.brand { color: var(--marrom); font-weight: 800; font-size: 1.5rem; }
+.brand span { color: var(--rosa-accent); }
+.subtitle { color: var(--cinza-texto); font-size: 0.9rem; margin: 5px 0 20px; }
+
+.icon-btn { background: none; border: none; font-size: 1.5rem; color: var(--marrom); }
+
+/* Filtro de Espécies */
+.species-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.specie-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.specie-icon {
+    width: 60px; height: 60px;
+    background: #f8f8f8;
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: var(--cinza-texto);
+    transition: 0.3s;
+}
+
+.specie-item span { font-size: 0.75rem; font-weight: 600; color: var(--cinza-texto); }
+
+.specie-item.active .specie-icon { background: var(--marrom); color: white; }
+.specie-item.active span { color: var(--marrom); }
+
+/* Grid de Adoção */
+.adoption-grid { padding: 20px; display: grid; gap: 20px; }
+
+.adoption-card {
+    background: var(--branco);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.pet-photo {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    color: var(--cinza-texto); /* Deixa ele cinza antes de clicar */
+    font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+}
+
+
+.pet-details { padding: 20px; }
+
+.name-age { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.name-age h3 { color: var(--preto); font-size: 1.3rem; }
+.age { background: var(--rosa-fundo); color: var(--rosa-accent); padding: 4px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: 700; }
+
+.location { color: var(--cinza-texto); font-size: 0.85rem; margin-bottom: 15px; }
+
+.tags { display: flex; gap: 8px; margin-bottom: 20px; }
+.tag { background: #f0f0f0; color: #555; padding: 5px 12px; border-radius: 8px; font-size: 0.7rem; font-weight: 600; }
+
+.btn-adopt {
+    width: 100%;
+    padding: 15px;
+    background: var(--marrom);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(121, 85, 72, 0.2);
+}
+
+/* Bottom Nav (Padrão) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--branco);
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #eee;
+    z-index: 2000;
+}
+.nav-item { text-decoration: none; display: flex; flex-direction: column; align-items: center; color: #BDBDBD; }
+.nav-item i { font-size: 1.5rem; }
+.nav-item span { font-size: 0.7rem; font-weight: 600; }
+.nav-item.active { color: var(--marrom); }
+.nav-item.active i { color: var(--rosa-accent); }
+
+/* Estilo de quando o botão for favoritado */
+.fav-btn.favoritado {
+    background: #FFFFFF !important; /* Mantém o fundo branco do botão */
+    color: #E91E63 !important; /* Força a cor a ser um rosa/vermelho bem vivo */
+    transform: scale(1.1); /* Dá um leve destaque no tamanho */
+}
+
+/* Garante que o ícone herde a cor vermelha do botão */
+.fav-btn.favoritado i {
+    color: #E91E63 !important;
+}
+
